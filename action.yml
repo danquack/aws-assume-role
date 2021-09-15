@@ -1,0 +1,9 @@
+name: 'AWS Assume Role'
+description: 'Assume a role given a role arn'
+inputs:
+  role_arn:
+    description: 'arn of which you want to assume'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
