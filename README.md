@@ -49,7 +49,13 @@ Outputs:
 
 ## Example usage
 ```yaml
-uses: danquack/aws-assume-role@main
-with:
-  role_arn: arn:aws:iam::123456789012:role/ExampleGithubRole
+...
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: danquack/aws-assume-role@main
+        with:
+          role_arn: arn:aws:iam::123456789012:role/ExampleGithubRole
+      - run: aws sts get-caller-identity
 ```
