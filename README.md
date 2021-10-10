@@ -9,6 +9,9 @@ Parameters:
   RepoName:
     Type: String
     Default: aidansteele/aws-federation-github-actions
+  GithubOrg:
+    Type: String
+    Default: aidansteele
 
 Resources:
   Role:
@@ -24,13 +27,14 @@ Resources:
               Federated: !Ref GithubOidc
             Condition:
               StringLike:
-                vstoken.actions.githubusercontent.com:sub: !Sub repo:${RepoName}:*
+                token.actions.githubusercontent.com:sub: !Sub repo:${RepoName}:*
 
   GithubOidc:
     Type: AWS::IAM::OIDCProvider
     Properties:
-      Url: https://vstoken.actions.githubusercontent.com
-      ClientIdList: [sigstore]
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList: 
+        - !Sub https://github.com/${GithubOrg}
       ThumbprintList: [a031c46782e6e6c662c2c87c76da9aa62ccabd8e]
 
 Outputs:

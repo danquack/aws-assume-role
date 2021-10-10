@@ -3,9 +3,8 @@ const axios = require('axios')
 const fs = require('fs')
 
 async function requestBearer() {
-    const bearer_url = `${process.env.ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sigstore`
     let response = await axios.get(
-        bearer_url, {
+        process.env.ACTIONS_ID_TOKEN_REQUEST_URL, {
         headers: {
             Authorization: `bearer ${process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}`
         },
