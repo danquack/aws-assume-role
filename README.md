@@ -1,3 +1,7 @@
+## Archive Notice
+AWS has now added this functionality into their [GitHub action](https://github.com/aws-actions/configure-aws-credentials). It is recommended you use that for the latest features. 
+
+
 # Github Actions Assume Role
 This github action is to allow for assuming role via the steps provided in [AWS federation comes to GitHub Actions](https://awsteele.com/blog/2021/09/15/aws-federation-comes-to-github-actions.html). The idea is to abstract away some of the process from the user, such that they only need to have the role id available.
 
